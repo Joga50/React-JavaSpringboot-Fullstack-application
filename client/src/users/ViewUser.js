@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function ViewUser() {
-  let navigate = useNavigate();
-
   const { id } = useParams();
   // CREATE STATE WITH OBJECT STRUCTURED AS THE DATA MODEL TO STORE DATA INTO THE STATE
   const [user, setUser] = useState({
@@ -14,22 +12,12 @@ export default function ViewUser() {
   });
   // DECONSTRUCTS THE OBJECT
   const { name, username, email } = user;
-  // STORE DATA INTO THE STATE TO BE POSTED ON THE DATABASE LATER
-  //   const onInputChange = (e) => {
-  //     setUser({ ...user, [e.target.name]: e.target.value });
-  //   };
 
   // USE EFFECT HOOK IN ORDER TO MAKE THE CALL TO THE API SO YOU CAN USE THE AXIOS FUNCTIONS TO CREATE THE HTTP REQUESTS
   useEffect(() => {
     loadUser();
   }, []);
 
-  // PUT DATA INTO THE DATABASE WITH AXIOS
-  //   const onSubmit = async (e) => {
-  //     e.preventDefault();
-  //     await axios.put(`http://localhost:8080/user/${id}`, user);
-  //     navigate("/");
-  //   };
   // GET THE USER THAT IS GONGING TO BE VIEWED
   const loadUser = async () => {
     const result = await axios.get(`http://localhost:8080/user/${id}`);
@@ -62,8 +50,8 @@ export default function ViewUser() {
               <label>{user.email}</label>
             </div>
 
-            <Link to="/" className="btn btn-outline-danger mx-2">
-              Cancel
+            <Link to="/" className="btn btn-outline-dark mx-2">
+              Back to home
             </Link>
           </form>
         </div>

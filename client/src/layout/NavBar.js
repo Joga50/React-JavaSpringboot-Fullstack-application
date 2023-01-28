@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 export default function NavBar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg  navbar-dark bg-primary bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg  navbar-dark bg-secondary bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             Full Stack Application
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
